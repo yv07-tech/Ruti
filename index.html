@@ -351,7 +351,7 @@
     .hearts {
       font-weight: 800;
       color: var(--danger);
-      font-size: 15px;
+      font-size: 17px;
       display: flex;
       align-items: center;
       gap: 4px;
@@ -883,7 +883,7 @@
         <div class="progress-track">
           <div class="progress-fill" id="progressBar"></div>
         </div>
-        <div class="hearts">❤️ <span id="heartsCount">5</span></div>
+        <div class="hearts" title="Vidas infinitas">❤️ <span>∞</span></div>
       </div>
 
       <div id="questionArea"></div>
@@ -934,7 +934,7 @@
         display: "standalone",
         background_color: "#131f24",
         theme_color: "#58cc02",
-        icons: [{ src: `data:image/svg+xml,\${iconSvg}`, sizes: "192x192", type: "image/svg+xml" }]
+        icons: [{ src: `data:image/svg+xml,${iconSvg}`, sizes: "192x192", type: "image/svg+xml" }]
       };
       const blob = new Blob([JSON.stringify(manifest)], { type: "application/manifest+json" });
       document.getElementById("pwa-manifest").setAttribute("href", URL.createObjectURL(blob));
@@ -1007,4 +1007,675 @@
         <rect x="38" y="50" width="44" height="22" rx="3" fill="#94a3b8"/>
         <rect x="52" y="58" width="16" height="5" rx="2" fill="#f8fafc"/>
         <rect x="38" y="76" width="44" height="22" rx="3" fill="#94a3b8"/>
-        <rect x="52" y="84" width="16"
+        <rect x="52" y="84" width="16" height="5" rx="2" fill="#f8fafc"/>
+      </svg>`,
+      scanner: `<svg viewBox="0 0 120 120">
+        <rect x="22" y="66" width="76" height="26" rx="6" fill="#334155"/>
+        <polygon points="26,66 86,34 92,42 32,66" fill="#64748b"/>
+        <rect x="34" y="56" width="48" height="6" fill="#38bdf8"/>
+        <circle cx="84" cy="79" r="4" fill="#58cc02"/>
+      </svg>`,
+      invoice: `<svg viewBox="0 0 120 120">
+        <rect x="28" y="16" width="64" height="88" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="3"/>
+        <rect x="38" y="26" width="32" height="8" rx="2" fill="#1cb0f6"/>
+        <line x1="38" y1="46" x2="82" y2="46" stroke="#cbd5e1" stroke-width="3"/>
+        <line x1="38" y1="58" x2="82" y2="58" stroke="#cbd5e1" stroke-width="3"/>
+        <line x1="38" y1="70" x2="66" y2="70" stroke="#cbd5e1" stroke-width="3"/>
+        <text x="74" y="92" font-size="18" font-weight="900" fill="#58cc02" text-anchor="middle">£€$</text>
+      </svg>`,
+      ceo: `<svg viewBox="0 0 120 120">
+        <rect x="38" y="18" width="44" height="22" rx="5" fill="#ff4b4b"/>
+        <text x="60" y="33" font-size="11" font-weight="900" fill="#fff" text-anchor="middle">CEO</text>
+        <path d="M60 40 V56 M30 56 H90 M30 56 V70 M60 56 V70 M90 56 V70" stroke="#64748b" stroke-width="3" fill="none"/>
+        <rect x="16" y="70" width="28" height="18" rx="4" fill="#94a3b8"/>
+        <rect x="46" y="70" width="28" height="18" rx="4" fill="#94a3b8"/>
+        <rect x="76" y="70" width="28" height="18" rx="4" fill="#94a3b8"/>
+      </svg>`,
+      opposite: `<svg viewBox="0 0 120 120">
+        <rect x="14" y="34" width="34" height="52" rx="6" fill="#1cb0f6"/>
+        <text x="31" y="64" font-size="11" font-weight="800" fill="#fff" text-anchor="middle">LIFT</text>
+        <rect x="72" y="34" width="34" height="52" rx="6" fill="#58cc02"/>
+        <text x="89" y="64" font-size="10" font-weight="800" fill="#fff" text-anchor="middle">STAIRS</text>
+        <path d="M52 60 H68 M56 55 L50 60 L56 65 M64 55 L70 60 L64 65" stroke="#ff4b4b" stroke-width="3" fill="none"/>
+      </svg>`,
+      punctual: `<svg viewBox="0 0 120 120">
+        <circle cx="60" cy="60" r="40" fill="#fff" stroke="#1cb0f6" stroke-width="6"/>
+        <line x1="60" y1="60" x2="60" y2="34" stroke="#1f2937" stroke-width="5" stroke-linecap="round"/>
+        <line x1="60" y1="60" x2="78" y2="60" stroke="#1f2937" stroke-width="5" stroke-linecap="round"/>
+        <circle cx="88" cy="86" r="14" fill="#58cc02"/>
+        <path d="M82 86 L86 90 L94 82" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/>
+      </svg>`,
+      multitasking: `<svg viewBox="0 0 120 120">
+        <circle cx="60" cy="54" r="18" fill="#fbbf24"/>
+        <path d="M36 96 C36 78 84 78 84 96" fill="#1cb0f6"/>
+        <rect x="14" y="24" width="24" height="18" rx="4" fill="#58cc02"/>
+        <rect x="82" y="24" width="24" height="18" rx="4" fill="#ff4b4b"/>
+        <rect x="82" y="54" width="24" height="18" rx="4" fill="#ce82ff"/>
+      </svg>`,
+      relocate: `<svg viewBox="0 0 120 120">
+        <polygon points="36,30 16,48 56,48" fill="#1cb0f6"/>
+        <rect x="22" y="48" width="28" height="26" fill="#93c5fd"/>
+        <path d="M60 56 H80 L74 50 M80 56 L74 62" stroke="#58cc02" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <polygon points="94,30 74,48 114,48" fill="#58cc02"/>
+        <rect x="80" y="48" width="28" height="26" fill="#86efac"/>
+      </svg>`
+    };
+
+    /* ================= FULL CURRICULUM DATABASE ================= */
+    const VOCAB_DB = [
+      // HABILIDADES COMUNICATIVAS (UNIT 19)
+      { subj: "comm", en: "headquarters", es: "sede central / oficina principal" },
+      { subj: "comm", en: "relocate", es: "trasladarse / reubicarse (de ciudad o país)" },
+      { subj: "comm", en: "fluent", es: "fluido / que domina un idioma" },
+      { subj: "comm", en: "educational background", es: "formación académica / estudios" },
+      { subj: "comm", en: "vocational course", es: "curso de formación profesional (FP)" },
+      { subj: "comm", en: "secondary school", es: "educación secundaria / instituto" },
+      { subj: "comm", en: "under pressure", es: "bajo presión" },
+      { subj: "comm", en: "outgoing", es: "extrovertido / sociable" },
+      { subj: "comm", en: "introverted", es: "introvertido / tímido" },
+      { subj: "comm", en: "confident", es: "seguro de sí mismo" },
+      { subj: "comm", en: "insecure", es: "inseguro" },
+      { subj: "comm", en: "hard-working", es: "trabajador / aplicado" },
+      { subj: "comm", en: "lazy", es: "vago / perezoso" },
+      { subj: "comm", en: "organised", es: "organizado" },
+      { subj: "comm", en: "messy", es: "desordenado" },
+      { subj: "comm", en: "knowledgeable", es: "experto / bien informado" },
+      { subj: "comm", en: "headhunter", es: "cazatalentos (empresa de selección)" },
+      { subj: "comm", en: "starting salary", es: "salario inicial" },
+      { subj: "comm", en: "perk", es: "beneficio extra / ventaja laboral" },
+      { subj: "comm", en: "notice", es: "preaviso (al dejar un empleo)" },
+      { subj: "comm", en: "shift work", es: "trabajo por turnos" },
+      { subj: "comm", en: "overtime", es: "horas extra" },
+      { subj: "comm", en: "retirement benefits", es: "plan de pensiones / prestaciones de jubilación" },
+      { subj: "comm", en: "incentive", es: "incentivo / bonificación" },
+      { subj: "comm", en: "fast learner", es: "persona que aprende rápido" },
+      { subj: "comm", en: "multitasking", es: "multitarea (hacer varias cosas a la vez)" },
+      { subj: "comm", en: "fire", es: "despedir (a un empleado)" },
+      { subj: "comm", en: "recruit", es: "contratar / reclutar personal" },
+      { subj: "comm", en: "articulate", es: "elocuente / que se expresa con claridad" },
+      { subj: "comm", en: "decisive", es: "decidido / resolutivo" },
+      { subj: "comm", en: "punctual", es: "puntual" },
+      { subj: "comm", en: "keen", es: "entusiasmado / muy interesado" },
+      { subj: "comm", en: "permanent", es: "fijo / indefinido (contrato)" },
+      { subj: "comm", en: "temporary", es: "temporal" },
+      { subj: "comm", en: "conscientious", es: "concienzudo / responsable con su deber" },
+      { subj: "comm", en: "easy-going", es: "de trato fácil / relajado" },
+
+      // INGLÉS PROFESIONAL (UNITS 1 & 2)
+      { subj: "prof", en: "Chief Executive Officer (CEO)", es: "director ejecutivo / director general" },
+      { subj: "prof", en: "Financial Director", es: "director financiero" },
+      { subj: "prof", en: "Head of IT", es: "jefe de informática / sistemas" },
+      { subj: "prof", en: "Accounts Assistant", es: "auxiliar contable" },
+      { subj: "prof", en: "Sales Representative (Rep)", es: "comercial / representante de ventas" },
+      { subj: "prof", en: "staff", es: "plantilla / personal de la empresa" },
+      { subj: "prof", en: "be in charge of", es: "estar a cargo de / ser responsable de" },
+      { subj: "prof", en: "ground floor", es: "planta baja" },
+      { subj: "prof", en: "top floor", es: "última planta" },
+      { subj: "prof", en: "stockroom", es: "almacén de material de oficina" },
+      { subj: "prof", en: "warehouse", es: "nave / almacén de mercancías" },
+      { subj: "prof", en: "opposite", es: "enfrente de" },
+      { subj: "prof", en: "go past", es: "pasar por delante de" },
+      { subj: "prof", en: "lift", es: "ascensor (UK)" },
+      { subj: "prof", en: "screen a call", es: "filtrar una llamada" },
+      { subj: "prof", en: "take minutes", es: "tomar acta (de una reunión)" },
+      { subj: "prof", en: "data entry", es: "introducción de datos" },
+      { subj: "prof", en: "desk research", es: "investigación documental / búsqueda en internet" },
+      { subj: "prof", en: "keep a log", es: "llevar un registro" },
+      { subj: "prof", en: "keep track of", es: "hacer seguimiento / llevar el control de" },
+      { subj: "prof", en: "a box of staples", es: "una caja de grapas" },
+      { subj: "prof", en: "a roll of sticky tape", es: "un rollo de cinta adhesiva" },
+      { subj: "prof", en: "a packet of highlighters", es: "un paquete de subrayadores" },
+      { subj: "prof", en: "a pair of scissors", es: "unas tijeras" },
+      { subj: "prof", en: "a sheet of paper", es: "una hoja de papel" },
+      { subj: "prof", en: "shredder", es: "destructora de papel" },
+      { subj: "prof", en: "filing cabinet", es: "archivador metálico" },
+      { subj: "prof", en: "scanner", es: "escáner" },
+      { subj: "prof", en: "pen drive", es: "memoria USB" },
+      { subj: "prof", en: "invoice", es: "factura" },
+      { subj: "prof", en: "shipping cost", es: "gastos de envío" },
+      { subj: "prof", en: "run low on", es: "quedarse con pocas existencias de" },
+      { subj: "prof", en: "run out of", es: "quedarse sin / agotarse" },
+      { subj: "prof", en: "charge", es: "cobrar (un importe)" }
+    ];
+
+    const VISUAL_QUESTIONS = [
+      { subj: "prof", svg: "staples", prompt: "Completa la expresión: 'A box of ____'", answer: "staples", options: ["staples", "highlighters", "sticky tape", "paper"] },
+      { subj: "prof", svg: "scissors", prompt: "Completa la expresión: 'A pair of ____'", answer: "scissors", options: ["scissors", "staples", "folders", "pens"] },
+      { subj: "prof", svg: "highlighters", prompt: "Completa la expresión: 'A packet of ____'", answer: "highlighters", options: ["highlighters", "paper", "sticky tape", "staples"] },
+      { subj: "prof", svg: "shredder", prompt: "¿Qué máquina de oficina destruye documentos confidenciales?", answer: "shredder", options: ["shredder", "scanner", "projector", "photocopier"] },
+      { subj: "prof", svg: "filing_cabinet", prompt: "¿Dónde guardamos los documentos físicos clasificados?", answer: "filing cabinet", options: ["filing cabinet", "recycling bin", "pedestal", "pen drive"] },
+      { subj: "prof", svg: "scanner", prompt: "¿Qué dispositivo digitaliza contratos en papel?", answer: "scanner", options: ["scanner", "shredder", "laptop", "projector"] },
+      { subj: "prof", svg: "invoice", prompt: "Documento que detalla los artículos pedidos y su precio:", answer: "invoice", options: ["invoice", "agenda", "log", "visitor's pass"] },
+      { subj: "prof", svg: "ceo", prompt: "¿Qué puesto ocupa la cima del organigrama?", answer: "Chief Executive Officer (CEO)", options: ["Chief Executive Officer (CEO)", "Accounts Assistant", "Sales Rep", "Junior Assistant"] },
+      { subj: "prof", svg: "opposite", prompt: "Según el plano, el ascensor (lift) está ____ las escaleras:", answer: "opposite", options: ["opposite", "behind", "between", "under"] },
+      { subj: "comm", svg: "punctual", prompt: "Adjetivo para alguien que nunca llega tarde al trabajo:", answer: "punctual", options: ["punctual", "messy", "insecure", "lazy"] },
+      { subj: "comm", svg: "multitasking", prompt: "Habilidad para hacer varias tareas al mismo tiempo:", answer: "multitasking", options: ["multitasking", "shift work", "overtime", "notice"] },
+      { subj: "comm", svg: "relocate", prompt: "Mudarse a otra ciudad o país por motivos de trabajo:", answer: "relocate", options: ["relocate", "recruit", "fire", "retire"] }
+    ];
+
+    const MCQ_QUESTIONS = [
+      { subj: "comm", prompt: "¿Qué empresa contratan las compañías para buscar perfiles directivos muy cualificados?", answer: "headhunter", options: ["headhunter", "accounts assistant", "sales rep", "trainee"], explain: "En el Tip de la Unidad 19: las empresas de selección para altos cargos se llaman 'headhunters'." },
+      { subj: "comm", prompt: "¿Cuál es el opuesto del adjetivo 'outgoing'?", answer: "introverted", options: ["introverted", "confident", "organised", "decisive"], explain: "Outgoing (extrovertido) ↔ Introverted (introvertido)." },
+      { subj: "comm", prompt: "¿Cuál es el opuesto de 'insecure'?", answer: "confident", options: ["confident", "anxious", "messy", "lazy"], explain: "Insecure (inseguro) ↔ Confident (seguro de sí mismo)." },
+      { subj: "comm", prompt: "¿Cuál es el opuesto de 'organised'?", answer: "messy", options: ["messy", "punctual", "keen", "articulate"], explain: "Organised (organizado) ↔ Messy (desordenado)." },
+      { subj: "comm", prompt: "¿Qué significa 'conscientious' en una entrevista?", answer: "Muy serio y responsable con sus deberes", options: ["Muy serio y responsable con sus deberes", "Que aprende muy rápido", "Que solo quiere un contrato temporal", "Que es muy tímido"], explain: "Conscientious = very serious about doing duties and what is right." },
+      { subj: "comm", prompt: "¿Qué significa 'articulate'?", answer: "Que habla y se expresa con claridad", options: ["Que habla y se expresa con claridad", "Que llega siempre puntual", "Que es desordenado", "Que trabaja por turnos"], explain: "Articulate = good at speaking clearly / in public." },
+      { subj: "prof", prompt: "¿Quién se encarga de gestionar los sistemas informáticos de la empresa?", answer: "Head of IT", options: ["Head of IT", "Financial Director", "Production Team Leader", "Personnel Manager"], explain: "Head of IT = looks after the company's computer systems." },
+      { subj: "prof", prompt: "¿Cuál es la diferencia entre 'run low on' y 'run out of'?", answer: "'Run low on' es tener poco; 'run out of' es haberse quedado sin nada", options: ["'Run low on' es tener poco; 'run out of' es haberse quedado sin nada", "Significan exactamente lo mismo", "'Run out of' es pedir un descuento", "'Run low on' es pagar una factura"], explain: "Run low on = quedar poco stock; Run out of = agotarse por completo." },
+      { subj: "prof", prompt: "¿Qué significa 'take minutes' en una reunión?", answer: "Tomar nota / redactar el acta de lo hablado", options: ["Tomar nota / redactar el acta de lo hablado", "Controlar el reloj", "Preparar el café", "Filtrar llamadas"], explain: "Take minutes = hacer un registro escrito de todo lo discutido en la reunión." },
+      { subj: "prof", prompt: "¿Qué diferencia hay entre 'stockroom' y 'warehouse'?", answer: "Stockroom guarda material de oficina; warehouse almacena mercancías/productos", options: ["Stockroom guarda material de oficina; warehouse almacena mercancías/productos", "Stockroom es el aparcamiento; warehouse es la cafetería", "Ambos son salas de reuniones", "Warehouse es la recepción"], explain: "Stockroom = office supplies (papel, grapas); Warehouse = productos en estanterías." }
+    ];
+
+    const FILL_QUESTIONS = [
+      { subj: "comm", prompt: "The job requires me to ____ to Berlin.", answer: "relocate", options: ["relocate", "recruit", "fire", "retire"], explain: "Relocate = trasladarse de ciudad o país por trabajo." },
+      { subj: "comm", prompt: "I need to give four weeks' ____ when I want to leave my current job.", answer: "notice", options: ["notice", "perk", "incentive", "shift"], explain: "Notice (period) = tiempo de preaviso antes de dejar un empleo." },
+      { subj: "comm", prompt: "One ____ of working here is 10% off at local restaurants.", answer: "perk", options: ["perk", "notice", "salary", "headquarters"], explain: "Perk = ventaja o beneficio adicional del puesto." },
+      { subj: "comm", prompt: "The factory workers do ____ from 7 am to 3 pm and 3 pm to 11 pm.", answer: "shift work", options: ["shift work", "desk research", "data entry", "multitasking"], explain: "Shift work = trabajo por turnos rotativos." },
+      { subj: "comm", prompt: "Greg was late for work again. I'm sure they'll ____ him soon.", answer: "fire", options: ["fire", "recruit", "lead", "relocate"], explain: "Fire = despedir a alguien." },
+      { subj: "prof", prompt: "Please ____ my calls carefully — I'm too busy to talk to everyone.", answer: "screen", options: ["screen", "file", "charge", "attend"], explain: "Screen calls = filtrar llamadas." },
+      { subj: "prof", prompt: "You keep ____ of our office supplies so we don't run out of anything.", answer: "track", options: ["track", "log", "minutes", "mail"], explain: "Keep track of = llevar el control / seguimiento de algo." },
+      { subj: "prof", prompt: "I've ____ printing paper. I haven't got any left!", answer: "run out of", options: ["run out of", "run low on", "charged", "delivered"], explain: "Run out of = quedarse sin nada." },
+      { subj: "prof", prompt: "How much has he ____ you for all the office supplies?", answer: "charged", options: ["charged", "paid", "ordered", "filed"], explain: "Charge = cobrar un precio por un producto o servicio." },
+      { subj: "prof", prompt: "In the UK, you enter a building on the ____ floor.", answer: "ground", options: ["ground", "first", "top", "second"], explain: "En Reino Unido se entra por la 'ground floor' (planta baja)." }
+    ];
+
+    const WRITE_QUESTIONS = [
+      { subj: "comm", prompt: "Escribe en inglés: 'sede central'", answer: "headquarters", hint: "Empieza por 'head...'" },
+      { subj: "comm", prompt: "Escribe en inglés: 'trasladarse / reubicarse'", answer: "relocate", hint: "Empieza por 'relo...'" },
+      { subj: "comm", prompt: "Escribe en inglés: 'preaviso (al dejar un trabajo)'", answer: "notice", hint: "6 letras, empieza por 'n'" },
+      { subj: "comm", prompt: "Escribe en inglés: 'beneficio extra laboral'", answer: "perk", hint: "4 letras, empieza por 'p'" },
+      { subj: "comm", prompt: "Escribe en inglés: 'salario inicial'", answer: "starting salary", hint: "Dos palabras: s_______ s_____" },
+      { subj: "comm", prompt: "Escribe en inglés: 'extrovertido / sociable'", answer: "outgoing", hint: "Empieza por 'out...'" },
+      { subj: "comm", prompt: "Escribe en inglés: 'bajo presión'", answer: "under pressure", hint: "Dos palabras: u____ p_______" },
+      { subj: "prof", prompt: "Escribe en inglés: 'destructora de papel'", answer: "shredder", hint: "Empieza por 'shred...'" },
+      { subj: "prof", prompt: "Escribe en inglés: 'factura'", answer: "invoice", hint: "7 letras, empieza por 'in...'" },
+      { subj: "prof", prompt: "Escribe en inglés: 'planta baja'", answer: "ground floor", hint: "Dos palabras: g_____ f____" },
+      { subj: "prof", prompt: "Escribe en inglés: 'enfrente de'", answer: "opposite", hint: "8 letras, empieza por 'opp...'" },
+      { subj: "prof", prompt: "Escribe en inglés: 'quedarse sin (agotarse)'", answer: "run out of", hint: "Tres palabras: r__ o__ o_" },
+      { subj: "prof", prompt: "Escribe en inglés: 'estar a cargo de'", answer: "be in charge of", hint: "Cuatro palabras: b_ i_ c_____ o_" }
+    ];
+
+    const BOOK_MATCH_SETS = [
+      {
+        subj: "comm",
+        title: "Matches (A ↔ 1): Une cada adjetivo con su significado",
+        pairs: [
+          { left: "A. sensitive", right: "aware of other people's feelings" },
+          { left: "B. creative", right: "can think of original ideas" },
+          { left: "C. conscientious", right: "serious about doing duties right" },
+          { left: "D. industrious", right: "hard-working" },
+          { left: "E. easy-going", right: "pleasant and relaxed" }
+        ]
+      },
+      {
+        subj: "comm",
+        title: "Matches (A ↔ 1): Une los opuestos de personalidad",
+        pairs: [
+          { left: "A. outgoing", right: "introverted" },
+          { left: "B. insecure", right: "confident" },
+          { left: "C. hard-working", right: "lazy" },
+          { left: "D. organised", right: "messy" },
+          { left: "E. permanent", right: "temporary" }
+        ]
+      },
+      {
+        subj: "prof",
+        title: "Matches (A ↔ 1): Une cada cargo con su función",
+        pairs: [
+          { left: "A. Financial Director", right: "manages the company's money" },
+          { left: "B. Marketing Director", right: "plans how to sell a product" },
+          { left: "C. HR Director", right: "finds and trains new employees" },
+          { left: "D. Head of IT", right: "looks after computer systems" },
+          { left: "E. Sales Rep", right: "travels to sell products" }
+        ]
+      },
+      {
+        subj: "prof",
+        title: "Matches (A ↔ 1): Une cada término de facturación con su definición",
+        pairs: [
+          { left: "A. price per unit", right: "how much each item costs" },
+          { left: "B. subtotal", right: "price of items without tax" },
+          { left: "C. shipping cost", right: "price of sending items" },
+          { left: "D. invoice", right: "document listing ordered items" },
+          { left: "E. delivery", right: "getting items to a customer" }
+        ]
+      }
+    ];
+
+    const ORDER_QUESTIONS = [
+      { subj: "comm", prompt: "Ordena la pregunta de entrevista:", answer: "Could you tell me about your educational background?", words: ["Could", "you", "tell", "me", "about", "your", "educational", "background?"] },
+      { subj: "comm", prompt: "Ordena la frase sobre trabajo bajo presión:", answer: "I'd like to know how well you work under pressure.", words: ["I'd", "like", "to", "know", "how", "well", "you", "work", "under", "pressure."] },
+      { subj: "comm", prompt: "Ordena la respuesta del candidato:", answer: "I'm keen to succeed and flexible about hours.", words: ["I'm", "keen", "to", "succeed", "and", "flexible", "about", "hours."] },
+      { subj: "prof", prompt: "Ordena la frase sobre ubicación en la oficina:", answer: "The Human Resources department is on the first floor.", words: ["The", "Human", "Resources", "department", "is", "on", "the", "first", "floor."] },
+      { subj: "prof", prompt: "Ordena la petición educada de oficina:", answer: "Could you please e-mail the agenda to everyone?", words: ["Could", "you", "please", "e-mail", "the", "agenda", "to", "everyone?"] },
+      { subj: "prof", prompt: "Ordena las indicaciones para llegar a una sala:", answer: "Walk to the end of the corridor and turn left.", words: ["Walk", "to", "the", "end", "of", "the", "corridor", "and", "turn", "left."] }
+    ];
+
+    /* ================= APP STATE ================= */
+    let selectedSubj = "all";
+    let currentQueue = [];
+    let currentIndex = 0;
+    let correctCount = 0;
+    let totalQuestions = 0;
+    let answered = false;
+
+    let selectedOption = null;
+    let builtSentence = [];
+    let matchLeftSelected = null;
+    let matchedCount = 0;
+
+    function updateStatsUI() {
+      document.getElementById("streakStat").textContent = localStorage.getItem("lingua_streak") || "0";
+      document.getElementById("xpStat").textContent = localStorage.getItem("lingua_xp") || "0";
+      document.getElementById("vocabCountStat").textContent = VOCAB_DB.length;
+    }
+    updateStatsUI();
+
+    function selectSubject(subj, el) {
+      selectedSubj = subj;
+      document.querySelectorAll(".subject-card").forEach(c => c.classList.remove("active"));
+      el.classList.add("active");
+    }
+
+    function filterBySubj(arr) {
+      if (selectedSubj === "all") return [...arr];
+      return arr.filter(item => item.subj === selectedSubj);
+    }
+
+    function shuffle(arr) {
+      const a = [...arr];
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
+    }
+
+    function buildAudioQuestions() {
+      const pool = filterBySubj(VOCAB_DB);
+      return shuffle(pool).slice(0, 8).map(item => {
+        const distractors = shuffle(VOCAB_DB.filter(v => v.en !== item.en)).slice(0, 3).map(v => v.es);
+        return {
+          type: "audio",
+          subj: item.subj,
+          audioText: item.en,
+          prompt: "Escucha y selecciona el significado correcto:",
+          answer: item.es,
+          options: shuffle([item.es, ...distractors]),
+          explain: `${item.en} = ${item.es}`
+        };
+      });
+    }
+
+    function buildQuickPairQuestions() {
+      const pool = shuffle(filterBySubj(VOCAB_DB));
+      const sets = [];
+      for (let i = 0; i < Math.min(3, Math.floor(pool.length / 5)); i++) {
+        const slice = pool.slice(i * 5, i * 5 + 5);
+        sets.push({
+          type: "pairs",
+          subj: selectedSubj,
+          title: "Parejas Rápidas: Conecta cada palabra con su significado",
+          pairs: slice.map(v => ({ left: v.en, right: v.es }))
+        });
+      }
+      return sets;
+    }
+
+    function startMode(mode) {
+      let q = [];
+      if (mode === "visual") {
+        q = shuffle(filterBySubj(VISUAL_QUESTIONS)).map(x => ({ ...x, type: "visual", options: shuffle(x.options) }));
+      } else if (mode === "mcq") {
+        q = shuffle(filterBySubj(MCQ_QUESTIONS)).map(x => ({ ...x, type: "mcq", options: shuffle(x.options) }));
+      } else if (mode === "fill") {
+        q = shuffle(filterBySubj(FILL_QUESTIONS)).map(x => ({ ...x, type: "fill", options: shuffle(x.options) }));
+      } else if (mode === "write") {
+        q = shuffle(filterBySubj(WRITE_QUESTIONS)).slice(0, 8).map(x => ({ ...x, type: "write" }));
+      } else if (mode === "bookmatch") {
+        q = shuffle(filterBySubj(BOOK_MATCH_SETS)).map(x => ({ ...x, type: "bookmatch" }));
+      } else if (mode === "pairs") {
+        q = buildQuickPairQuestions();
+      } else if (mode === "order") {
+        q = shuffle(filterBySubj(ORDER_QUESTIONS)).map(x => ({ ...x, type: "order" }));
+      } else if (mode === "audio") {
+        q = buildAudioQuestions();
+      } else if (mode === "mixed") {
+        const vis = shuffle(filterBySubj(VISUAL_QUESTIONS)).slice(0, 2).map(x => ({ ...x, type: "visual", options: shuffle(x.options) }));
+        const mcq = shuffle(filterBySubj(MCQ_QUESTIONS)).slice(0, 2).map(x => ({ ...x, type: "mcq", options: shuffle(x.options) }));
+        const fil = shuffle(filterBySubj(FILL_QUESTIONS)).slice(0, 2).map(x => ({ ...x, type: "fill", options: shuffle(x.options) }));
+        const wrt = shuffle(filterBySubj(WRITE_QUESTIONS)).slice(0, 1).map(x => ({ ...x, type: "write" }));
+        const bm = shuffle(filterBySubj(BOOK_MATCH_SETS)).slice(0, 1).map(x => ({ ...x, type: "bookmatch" }));
+        const ord = shuffle(filterBySubj(ORDER_QUESTIONS)).slice(0, 1).map(x => ({ ...x, type: "order" }));
+        const aud = buildAudioQuestions().slice(0, 1);
+        q = shuffle([...vis, ...mcq, ...fil, ...wrt, ...bm, ...ord, ...aud]);
+      }
+
+      if (!q.length) return;
+      currentQueue = q;
+      currentIndex = 0;
+      correctCount = 0;
+      totalQuestions = q.length;
+
+      document.getElementById("homeView").classList.add("hidden");
+      document.getElementById("summaryView").classList.add("hidden");
+      document.getElementById("lessonView").classList.remove("hidden");
+      renderQuestion();
+    }
+
+    function goHome() {
+      document.getElementById("lessonView").classList.add("hidden");
+      document.getElementById("summaryView").classList.add("hidden");
+      document.getElementById("homeView").classList.remove("hidden");
+      updateStatsUI();
+    }
+
+    function renderQuestion() {
+      const q = currentQueue[currentIndex];
+      answered = false;
+      selectedOption = null;
+      builtSentence = [];
+      matchLeftSelected = null;
+      matchedCount = 0;
+
+      document.getElementById("progressBar").style.width = `${(currentIndex / currentQueue.length) * 100}%`;
+
+      const fb = document.getElementById("feedbackBox");
+      fb.classList.add("hidden");
+      fb.className = "feedback-banner hidden";
+
+      const btn = document.getElementById("checkBtn");
+      btn.textContent = "Comprobar";
+      btn.disabled = true;
+
+      const subjLabel = q.subj === "comm" ? "Habilidades Comunicativas" : q.subj === "prof" ? "Inglés Profesional" : "Examen Mixto";
+      const area = document.getElementById("questionArea");
+
+      if (q.type === "visual") {
+        area.innerHTML = `
+          <div class="question-meta">${subjLabel} · Visual</div>
+          <div class="question-prompt">${q.prompt}</div>
+          <div class="visual-box">${SVGS[q.svg] || ""}</div>
+          <div class="options-list" id="optsContainer"></div>
+        `;
+        renderOptions(q.options, true);
+      } else if (q.type === "mcq" || q.type === "fill") {
+        area.innerHTML = `
+          <div class="question-meta">${subjLabel} · ${q.type === "mcq" ? "Selección Múltiple" : "Completar Frase"}</div>
+          <div class="question-prompt">${q.prompt}</div>
+          <div class="options-list" id="optsContainer"></div>
+        `;
+        renderOptions(q.options, true);
+      } else if (q.type === "audio") {
+        area.innerHTML = `
+          <div class="question-meta">${subjLabel} · Listening</div>
+          <div class="question-prompt">${q.prompt}</div>
+          <div class="audio-panel">
+            <button class="audio-play" onclick="speak('${q.audioText.replace(/'/g, "\\'")}', 0.95)">🔊 Escuchar</button>
+            <button class="audio-slow" onclick="speak('${q.audioText.replace(/'/g, "\\'")}', 0.65)">🐢 Lento</button>
+          </div>
+          <div class="options-list" id="optsContainer"></div>
+        `;
+        renderOptions(q.options, false);
+      } else if (q.type === "write") {
+        area.innerHTML = `
+          <div class="question-meta">${subjLabel} · Escribir en Inglés</div>
+          <div class="question-prompt">${q.prompt}</div>
+          <div class="write-box">
+            <input type="text" id="writeInput" class="write-input" placeholder="Escribe aquí en inglés..." autocomplete="off" autocapitalize="none" oninput="onWriteInput()" onkeydown="if(event.key==='Enter' && !document.getElementById('checkBtn').disabled) handleMainAction()" />
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <button class="icon-btn" onclick="showHint()">💡 Pista</button>
+              <span id="hintSlot" class="hint-text hidden">${q.hint}</span>
+            </div>
+          </div>
+        `;
+        setTimeout(() => document.getElementById("writeInput").focus(), 100);
+      } else if (q.type === "order") {
+        const shuffledWords = shuffle(q.words);
+        area.innerHTML = `
+          <div class="question-meta">${subjLabel} · Ordenar Frase</div>
+          <div class="question-prompt">${q.prompt}</div>
+          <div class="sentence-slot" id="sentenceSlot"></div>
+          <div class="word-bank" id="wordBank"></div>
+        `;
+        const bank = document.getElementById("wordBank");
+        shuffledWords.forEach((w, idx) => {
+          const chip = document.createElement("button");
+          chip.className = "word-chip";
+          chip.textContent = w;
+          chip.dataset.idx = idx;
+          chip.onclick = () => addWordToSlot(w, idx, chip);
+          bank.appendChild(chip);
+        });
+      } else if (q.type === "bookmatch" || q.type === "pairs") {
+        const isBook = q.type === "bookmatch";
+        const leftItems = q.pairs.map((p, idx) => ({ id: idx, text: p.left }));
+        const rightItems = shuffle(q.pairs.map((p, idx) => ({ id: idx, text: p.right })));
+        area.innerHTML = `
+          <div class="question-meta">${subjLabel} · ${isBook ? "Matches (A ↔ 1)" : "Parejas Rápidas"}</div>
+          <div class="question-prompt">${q.title}</div>
+          <div class="match-columns">
+            <div class="match-col" id="matchLeftCol"></div>
+            <div class="match-col" id="matchRightCol"></div>
+          </div>
+        `;
+        const lCol = document.getElementById("matchLeftCol");
+        const rCol = document.getElementById("matchRightCol");
+
+        leftItems.forEach(item => {
+          const el = document.createElement("button");
+          el.className = "match-item";
+          el.dataset.id = item.id;
+          el.innerHTML = `<span>${item.text}</span>`;
+          el.onclick = () => selectMatchLeft(item.id, el);
+          lCol.appendChild(el);
+        });
+
+        rightItems.forEach((item, idx) => {
+          const el = document.createElement("button");
+          el.className = "match-item";
+          el.dataset.id = item.id;
+          el.innerHTML = isBook
+            ? `<span class="tag-key">${idx + 1}</span><span>${item.text}</span>`
+            : `<span>${item.text}</span>`;
+          el.onclick = () => selectMatchRight(item.id, el);
+          rCol.appendChild(el);
+        });
+      }
+    }
+
+    function renderOptions(opts, speakEnglish) {
+      const container = document.getElementById("optsContainer");
+      opts.forEach((opt, i) => {
+        const btn = document.createElement("button");
+        btn.className = "option-btn";
+        btn.innerHTML = `
+          <div style="display:flex; align-items:center;">
+            <span class="opt-num">${i + 1}</span>
+            <span>${opt}</span>
+          </div>
+          ${speakEnglish ? `<span class="mini-speak" onclick="event.stopPropagation(); speak('${opt.replace(/'/g, "\\'")}')">🔊</span>` : ""}
+        `;
+        btn.onclick = () => {
+          if (answered) return;
+          selectedOption = opt;
+          document.querySelectorAll(".option-btn").forEach(b => b.classList.remove("selected"));
+          btn.classList.add("selected");
+          document.getElementById("checkBtn").disabled = false;
+        };
+        container.appendChild(btn);
+      });
+    }
+
+    function onWriteInput() {
+      const val = document.getElementById("writeInput").value.trim();
+      document.getElementById("checkBtn").disabled = val.length === 0;
+    }
+
+    function showHint() {
+      document.getElementById("hintSlot").classList.remove("hidden");
+    }
+
+    function addWordToSlot(word, idx, chipEl) {
+      if (answered) return;
+      chipEl.classList.add("used");
+      builtSentence.push({ word, idx });
+      renderSentenceSlot();
+    }
+
+    function renderSentenceSlot() {
+      const slot = document.getElementById("sentenceSlot");
+      slot.innerHTML = "";
+      builtSentence.forEach((item, pos) => {
+        const btn = document.createElement("button");
+        btn.className = "word-chip";
+        btn.textContent = item.word;
+        btn.onclick = () => {
+          if (answered) return;
+          builtSentence.splice(pos, 1);
+          const orig = document.querySelector(`#wordBank .word-chip[data-idx="${item.idx}"]`);
+          if (orig) orig.classList.remove("used");
+          renderSentenceSlot();
+        };
+        slot.appendChild(btn);
+      });
+      document.getElementById("checkBtn").disabled = builtSentence.length === 0;
+    }
+
+    function selectMatchLeft(id, el) {
+      if (answered || el.classList.contains("matched")) return;
+      document.querySelectorAll("#matchLeftCol .match-item").forEach(b => b.classList.remove("selected"));
+      el.classList.add("selected");
+      matchLeftSelected = { id, el };
+    }
+
+    function selectMatchRight(id, el) {
+      if (answered || !matchLeftSelected || el.classList.contains("matched")) return;
+      const q = currentQueue[currentIndex];
+      if (matchLeftSelected.id === id) {
+        matchLeftSelected.el.classList.remove("selected");
+        matchLeftSelected.el.classList.add("matched");
+        el.classList.add("matched");
+        matchLeftSelected = null;
+        matchedCount++;
+        if (matchedCount === q.pairs.length) {
+          answered = true;
+          correctCount++;
+          showFeedback(true, "¡Todas las parejas conectadas correctamente!");
+          document.getElementById("checkBtn").disabled = false;
+          document.getElementById("checkBtn").textContent = "Continuar";
+        }
+      } else {
+        el.classList.add("error");
+        matchLeftSelected.el.classList.add("error");
+        const leftRef = matchLeftSelected.el;
+        matchLeftSelected = null;
+        setTimeout(() => {
+          el.classList.remove("error");
+          leftRef.classList.remove("error", "selected");
+        }, 450);
+      }
+    }
+
+    function normalizeText(str) {
+      return str.toLowerCase().trim().replace(/[?.!,]/g, "").replace(/\s+/g, " ");
+    }
+
+    function handleMainAction() {
+      const q = currentQueue[currentIndex];
+
+      if (answered) {
+        currentIndex++;
+        if (currentIndex >= currentQueue.length) {
+          finishLesson();
+        } else {
+          renderQuestion();
+        }
+        return;
+      }
+
+      let isCorrect = false;
+      let detail = q.explain || `Respuesta correcta: ${q.answer}`;
+
+      if (q.type === "visual" || q.type === "mcq" || q.type === "fill" || q.type === "audio") {
+        isCorrect = selectedOption === q.answer;
+        document.querySelectorAll(".option-btn").forEach(btn => {
+          const txt = btn.querySelector("span:nth-child(2)").textContent;
+          if (txt === q.answer) btn.classList.add("correct");
+          else if (txt === selectedOption && !isCorrect) btn.classList.add("wrong");
+        });
+      } else if (q.type === "write") {
+        const userVal = document.getElementById("writeInput").value;
+        isCorrect = normalizeText(userVal) === normalizeText(q.answer);
+        detail = isCorrect ? `¡Exacto! "${q.answer}"` : `Se escribe: "${q.answer}"`;
+      } else if (q.type === "order") {
+        const userSentence = builtSentence.map(x => x.word).join(" ");
+        isCorrect = userSentence === q.answer;
+        detail = isCorrect ? "¡Orden perfecto!" : `Orden correcto: "${q.answer}"`;
+      }
+
+      answered = true;
+      if (isCorrect) {
+        correctCount++;
+      } else {
+        currentQueue.push({ ...q });
+      }
+
+      showFeedback(isCorrect, detail);
+      document.getElementById("checkBtn").textContent = "Continuar";
+    }
+
+    function showFeedback(ok, text) {
+      const fb = document.getElementById("feedbackBox");
+      fb.classList.remove("hidden");
+      fb.className = `feedback-banner ${ok ? "ok" : "bad"}`;
+      fb.innerHTML = `${ok ? "✅ ¡Correcto!" : "❌ Revisa esto:"} ${text}`;
+    }
+
+    function finishLesson() {
+      document.getElementById("lessonView").classList.add("hidden");
+      document.getElementById("summaryView").classList.remove("hidden");
+      document.getElementById("progressBar").style.width = "100%";
+
+      const acc = Math.round((correctCount / currentQueue.length) * 100);
+      const earnedXp = correctCount * 10;
+
+      const prevXp = parseInt(localStorage.getItem("lingua_xp") || "0", 10);
+      const prevStreak = parseInt(localStorage.getItem("lingua_streak") || "0", 10);
+      localStorage.setItem("lingua_xp", prevXp + earnedXp);
+      localStorage.setItem("lingua_streak", prevStreak + 1);
+
+      document.getElementById("summaryEmoji").textContent = "🏆";
+      document.getElementById("summaryTitle").textContent = "¡Ronda completada!";
+      document.getElementById("summarySubtitle").textContent = "Has repasado todos los conceptos de este bloque.";
+      document.getElementById("sumAcc").textContent = `${acc}%`;
+      document.getElementById("sumXp").textContent = `+${earnedXp} XP`;
+    }
+
+    /* ================= GLOSSARY ================= */
+    function openGlossary() {
+      document.getElementById("glossaryModal").classList.add("open");
+      renderGlossary();
+    }
+    function closeGlossary() {
+      document.getElementById("glossaryModal").classList.remove("open");
+    }
+    function renderGlossary() {
+      const term = document.getElementById("glossarySearch").value.toLowerCase();
+      const list = document.getElementById("glossaryList");
+      const items = filterBySubj(VOCAB_DB).filter(v =>
+        v.en.toLowerCase().includes(term) || v.es.toLowerCase().includes(term)
+      );
+      list.innerHTML = items.map(v => `
+        <div class="glossary-item">
+          <div>
+            <div style="font-weight:800; font-size:15px;">${v.en}</div>
+            <div style="font-size:13px; color:var(--text-muted);">${v.es}</div>
+          </div>
+          <button class="icon-btn" onclick="speak('${v.en.replace(/'/g, "\\'")}')">🔊</button>
+        </div>
+      `).join("");
+    }
+  </script>
+</body>
+</html>
