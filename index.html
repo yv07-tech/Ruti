@@ -809,14 +809,14 @@
           <p>Combina Habilidades Comunicativas (U.19) e Inglés Profesional (U.1-2).</p>
         </div>
         <div class="subject-card" data-subj="comm" onclick="selectSubject('comm', this)">
-          <span class="badge">Unit 19 · PDF 1</span>
+          <span class="badge">Unit 19</span>
           <h3>Habilidades Comunicativas</h3>
-          <p>Applying for a Job, Interviewing y Vocabulary Builder (pág. 158).</p>
+          <p>Applying for a Job, entrevistas, adjetivos, salario y condiciones laborales.</p>
         </div>
         <div class="subject-card" data-subj="prof" onclick="selectSubject('prof', this)">
-          <span class="badge green">Units 1 & 2 · PDF 2</span>
+          <span class="badge green">Units 1 & 2</span>
           <h3>Inglés Profesional</h3>
-          <p>Office Orientation, Finding Your Way, Routines y Equipment (págs. 140-141).</p>
+          <p>Office Orientation, Finding Your Way, rutinas, material y facturación.</p>
         </div>
       </div>
 
@@ -839,7 +839,7 @@
         <button class="mode-btn" onclick="startMode('mcq')">
           <span class="mode-icon">✅</span>
           <div class="mode-name">Selección Múltiple</div>
-          <div class="mode-desc">Preguntas de vocabulario y situaciones reales del libro.</div>
+          <div class="mode-desc">Preguntas de vocabulario y situaciones reales del temario.</div>
         </button>
 
         <button class="mode-btn" onclick="startMode('fill')">
@@ -927,7 +927,7 @@
         <button class="close-btn" onclick="closeGlossary()">✕</button>
       </div>
       <div style="padding: 10px 16px 0;">
-        <input type="text" id="glossarySearch" class="write-input" style="padding:10px 12px; font-size:14px;" placeholder="Buscar palabra en inglés o español (ej. schedule, pedestal, laptop, cafeteria)..." oninput="renderGlossary()" />
+        <input type="text" id="glossarySearch" class="write-input" style="padding:10px 12px; font-size:14px;" placeholder="Buscar palabra en inglés o español..." oninput="renderGlossary()" />
       </div>
       <div class="modal-body" id="glossaryList"></div>
     </div>
@@ -1139,7 +1139,7 @@
 
     /* ================= 100% EXACT VOCABULARY FROM BOTH PDFs ================= */
     const VOCAB_DB = [
-      // HABILIDADES COMUNICATIVAS · UNIT 19 (Vocabulary Builder pág. 158)
+      // HABILIDADES COMUNICATIVAS · UNIT 19
       { subj: "comm", en: "advanced", es: "avanzado" },
       { subj: "comm", en: "anxious", es: "nervioso / ansioso" },
       { subj: "comm", en: "confident", es: "seguro de sí mismo" },
@@ -1198,7 +1198,7 @@
       { subj: "comm", en: "supervise", es: "supervisar" },
       { subj: "comm", en: "survey", es: "encuesta" },
 
-      // INGLÉS PROFESIONAL · UNITS 1 & 2 (Vocabulary Builders págs. 140-141)
+      // INGLÉS PROFESIONAL · UNITS 1 & 2
       { subj: "prof", en: "Accounts Assistant", es: "auxiliar contable" },
       { subj: "prof", en: "Chief Executive Officer (CEO)", es: "director ejecutivo / director general" },
       { subj: "prof", en: "Financial Director", es: "director financiero" },
@@ -1340,7 +1340,7 @@
       { id: "v1", subj: "prof", svg: "staples", prompt: "Completa la expresión: 'A box of ____'", answer: "staples", options: ["staples", "highlighters", "sticky tape", "paper"] },
       { id: "v2", subj: "prof", svg: "sticky_tape", prompt: "Completa la expresión: 'A roll of ____'", answer: "sticky tape", options: ["sticky tape", "staples", "paper", "scissors"] },
       { id: "v3", subj: "prof", svg: "sheet_paper", prompt: "Completa la expresión: 'A sheet of ____'", answer: "paper", options: ["paper", "staples", "highlighters", "scissors"] },
-      { id: "v4", subj: "prof", svg: "pen_drive", prompt: "¿Cómo se llama esta memoria portátil en el libro?", answer: "pen drive", options: ["pen drive", "scanner", "shredder", "photocopier"] },
+      { id: "v4", subj: "prof", svg: "pen_drive", prompt: "¿Cómo se llama esta memoria portátil en el temario?", answer: "pen drive", options: ["pen drive", "scanner", "shredder", "photocopier"] },
       { id: "v5", subj: "prof", svg: "scissors", prompt: "Completa la expresión: 'A pair of ____'", answer: "scissors", options: ["scissors", "staples", "highlighters", "sticky tape"] },
       { id: "v6", subj: "prof", svg: "highlighters", prompt: "Completa la expresión: 'A packet of ____'", answer: "highlighters", options: ["highlighters", "paper", "sticky tape", "staples"] },
       { id: "v7", subj: "prof", svg: "shredder", prompt: "¿Qué máquina de oficina destruye documentos confidenciales?", answer: "shredder", options: ["shredder", "scanner", "photocopier", "projector"] },
@@ -1362,32 +1362,32 @@
     ];
 
     const MCQ_QUESTIONS = [
-      { id: "m1", subj: "comm", prompt: "¿Qué empresa contratan las compañías para buscar perfiles directivos altamente cualificados?", answer: "headhunter", options: ["headhunter", "accounts assistant", "sales rep", "trainee"], explain: "Tip (pág. 94): 'recruitment companies called headhunters'." },
-      { id: "m2", subj: "comm", prompt: "¿Cuál es el opuesto del adjetivo 'outgoing'?", answer: "introverted", options: ["introverted", "confident", "organised", "decisive"], explain: "Ejercicio 6 (pág. 95): outgoing ↔ introverted." },
-      { id: "m3", subj: "comm", prompt: "¿Cuál es el opuesto de 'insecure'?", answer: "confident", options: ["confident", "anxious", "messy", "lazy"], explain: "Ejercicio 6 (pág. 95): insecure ↔ confident." },
-      { id: "m4", subj: "comm", prompt: "¿Cuál es el opuesto de 'organised'?", answer: "messy", options: ["messy", "punctual", "keen", "articulate"], explain: "Ejercicio 6 (pág. 95): organised ↔ messy." },
-      { id: "m5", subj: "comm", prompt: "¿Qué significa 'conscientious'?", answer: "Muy serio y responsable con sus deberes", options: ["Muy serio y responsable con sus deberes", "Que aprende muy rápido", "Que solo quiere un contrato temporal", "Que es muy tímido"], explain: "Ejercicio 6 (pág. 97): conscientious = very serious about doing duties and what is right." },
-      { id: "m6", subj: "comm", prompt: "¿Qué significa 'articulate'?", answer: "Que habla y se expresa con claridad", options: ["Que habla y se expresa con claridad", "Que llega siempre puntual", "Que es desordenado", "Que trabaja por turnos"], explain: "Ejercicio 5 (pág. 97): 'I'm very articulate. I'm good at speaking in public.'" },
-      { id: "m7", subj: "prof", prompt: "¿Qué verbo forma expresión con 'a product' (vender un producto)?", answer: "sell", options: ["sell", "pay", "attend", "hire"], explain: "Ejercicio 6 (pág. 5): 'sell a product' / 'get a job'." },
-      { id: "m8", subj: "prof", prompt: "¿Dónde puedes comprar bocadillos (sandwiches) en el edificio de oficinas?", answer: "cafeteria", options: ["cafeteria", "stockroom", "warehouse", "car park"], explain: "Ejercicio 4 (pág. 7): 'You can buy sandwiches in the cafeteria.'" },
-      { id: "m9", subj: "prof", prompt: "¿Quién se encarga de los sistemas informáticos de la empresa?", answer: "Head of IT", options: ["Head of IT", "Financial Director", "Production Team Leader", "Personnel Manager"], explain: "Ejercicio 4 (pág. 5): 'The Head of IT looks after the company's computer systems.'" },
-      { id: "m10", subj: "prof", prompt: "¿Cuál es la diferencia entre 'run low on' y 'run out of'?", answer: "'Run low on' es tener poco; 'run out of' es haberse quedado sin nada", options: ["'Run low on' es tener poco; 'run out of' es haberse quedado sin nada", "Significan exactamente lo mismo", "'Run out of' es pedir un descuento", "'Run low on' es pagar una factura"], explain: "Ejercicio 7 (pág. 11): run out of = haven't got any; run low on = haven't got enough." },
-      { id: "m11", subj: "prof", prompt: "¿Qué significa 'take minutes' en una reunión?", answer: "Tomar nota / redactar el acta de lo hablado", options: ["Tomar nota / redactar el acta de lo hablado", "Controlar el reloj", "Repartir el correo", "Filtrar llamadas"], explain: "Ejercicio 4 (pág. 9): take minutes = 'We need a record of everything we discuss today.'" },
-      { id: "m12", subj: "prof", prompt: "¿Qué diferencia hay entre 'stockroom' y 'warehouse'?", answer: "Stockroom guarda material de oficina; warehouse almacena productos en estanterías", options: ["Stockroom guarda material de oficina; warehouse almacena productos en estanterías", "Stockroom es el aparcamiento; warehouse es la cafetería", "Ambos son salas de reuniones", "Warehouse es la recepción"], explain: "Ejercicio 4 (pág. 7): warehouse = products on the shelves; stockroom = office supplies." }
+      { id: "m1", subj: "comm", prompt: "¿Qué empresa contratan las compañías para buscar perfiles directivos altamente cualificados?", answer: "headhunter", options: ["headhunter", "accounts assistant", "sales rep", "trainee"], explain: "Las empresas de selección para altos cargos se llaman 'headhunters'." },
+      { id: "m2", subj: "comm", prompt: "¿Cuál es el opuesto del adjetivo 'outgoing'?", answer: "introverted", options: ["introverted", "confident", "organised", "decisive"], explain: "Outgoing (extrovertido) ↔ Introverted (introvertido)." },
+      { id: "m3", subj: "comm", prompt: "¿Cuál es el opuesto de 'insecure'?", answer: "confident", options: ["confident", "anxious", "messy", "lazy"], explain: "Insecure (inseguro) ↔ Confident (seguro de sí mismo)." },
+      { id: "m4", subj: "comm", prompt: "¿Cuál es el opuesto de 'organised'?", answer: "messy", options: ["messy", "punctual", "keen", "articulate"], explain: "Organised (organizado) ↔ Messy (desordenado)." },
+      { id: "m5", subj: "comm", prompt: "¿Qué significa 'conscientious'?", answer: "Muy serio y responsable con sus deberes", options: ["Muy serio y responsable con sus deberes", "Que aprende muy rápido", "Que solo quiere un contrato temporal", "Que es muy tímido"], explain: "Conscientious = very serious about doing duties and what is right." },
+      { id: "m6", subj: "comm", prompt: "¿Qué significa 'articulate'?", answer: "Que habla y se expresa con claridad", options: ["Que habla y se expresa con claridad", "Que llega siempre puntual", "Que es desordenado", "Que trabaja por turnos"], explain: "Articulate = good at speaking clearly / in public." },
+      { id: "m7", subj: "prof", prompt: "¿Qué verbo forma expresión con 'a product' (vender un producto)?", answer: "sell", options: ["sell", "pay", "attend", "hire"], explain: "'Sell a product' (vender un producto) / 'get a job' (conseguir un empleo)." },
+      { id: "m8", subj: "prof", prompt: "¿Dónde puedes comprar bocadillos (sandwiches) en el edificio de oficinas?", answer: "cafeteria", options: ["cafeteria", "stockroom", "warehouse", "car park"], explain: "Cafeteria = lugar donde comprar bocadillos o comer en la oficina." },
+      { id: "m9", subj: "prof", prompt: "¿Quién se encarga de los sistemas informáticos de la empresa?", answer: "Head of IT", options: ["Head of IT", "Financial Director", "Production Team Leader", "Personnel Manager"], explain: "Head of IT = looks after the company's computer systems." },
+      { id: "m10", subj: "prof", prompt: "¿Cuál es la diferencia entre 'run low on' y 'run out of'?", answer: "'Run low on' es tener poco; 'run out of' es haberse quedado sin nada", options: ["'Run low on' es tener poco; 'run out of' es haberse quedado sin nada", "Significan exactamente lo mismo", "'Run out of' es pedir un descuento", "'Run low on' es pagar una factura"], explain: "Run out of = haven't got any; run low on = haven't got enough." },
+      { id: "m11", subj: "prof", prompt: "¿Qué significa 'take minutes' en una reunión?", answer: "Tomar nota / redactar el acta de lo hablado", options: ["Tomar nota / redactar el acta de lo hablado", "Controlar el reloj", "Repartir el correo", "Filtrar llamadas"], explain: "Take minutes = hacer un registro escrito de todo lo discutido en la reunión." },
+      { id: "m12", subj: "prof", prompt: "¿Qué diferencia hay entre 'stockroom' y 'warehouse'?", answer: "Stockroom guarda material de oficina; warehouse almacena productos en estanterías", options: ["Stockroom guarda material de oficina; warehouse almacena productos en estanterías", "Stockroom es el aparcamiento; warehouse es la cafetería", "Ambos son salas de reuniones", "Warehouse es la recepción"], explain: "Stockroom = office supplies; warehouse = products on the shelves." }
     ];
 
     const FILL_QUESTIONS = [
-      { id: "f1", subj: "comm", prompt: "The job requires me to ____ to Paris.", answer: "relocate", options: ["relocate", "recruit", "fire", "lead"], explain: "Ejercicio 5 (pág. 95): 'The job requires me to relocate to Paris.'" },
-      { id: "f2", subj: "comm", prompt: "I need to give two months' ____ when I want to leave my current job.", answer: "notice", options: ["notice", "perk", "incentive", "schedule"], explain: "Ejercicio 4 (pág. 97): 'I need to give two months' notice when I want to leave my current job.'" },
-      { id: "f3", subj: "comm", prompt: "One ____ of working here is that you get 10% off at some of the local restaurants.", answer: "perk", options: ["perk", "notice", "starting salary", "headquarters"], explain: "Ejercicio 4 (pág. 97): 'One perk of working here is that you get 10% off...'" },
-      { id: "f4", subj: "comm", prompt: "Every week, the marketing reps get their ____ for the following week.", answer: "schedule", options: ["schedule", "shift work", "survey", "target"], explain: "Ejercicio 4 (pág. 97): 'Every week, the marketing reps get their schedule for the following week.'" },
-      { id: "f5", subj: "comm", prompt: "Greg was late for work again. I'm sure they'll ____ him soon.", answer: "fire", options: ["fire", "recruit", "lead", "supervise"], explain: "Ejercicio 4 (pág. 97): 'Greg was late for work again. I'm sure they'll fire him soon.'" },
-      { id: "f6", subj: "prof", prompt: "I travel for work a lot, so I need a ____ rather than a desktop computer.", answer: "laptop", options: ["laptop", "pedestal", "scanner", "projector"], explain: "Ejercicio 5 (pág. 11): 'I travel for work a lot, so I need a laptop rather than a desktop computer.'" },
-      { id: "f7", subj: "prof", prompt: "I keep a few files, some pens and my laptop bag in my ____.", answer: "pedestal", options: ["pedestal", "shredder", "photocopier", "recycling bin"], explain: "Ejercicio 5 (pág. 11): 'I keep a few files, some pens and my laptop bag in my pedestal.'" },
-      { id: "f8", subj: "prof", prompt: "Please ____ my calls carefully — I'm very busy.", answer: "screen", options: ["screen", "schedule", "distribute", "keep"], explain: "Ejercicio 5 (pág. 9): 'Please screen my calls carefully...'" },
-      { id: "f9", subj: "prof", prompt: "You ____ track of our office supplies so that we don't run out of anything.", answer: "keep", options: ["keep", "screen", "receive", "prepare"], explain: "Ejercicio 5 (pág. 9): 'You keep track of our office supplies...'" },
-      { id: "f10", subj: "prof", prompt: "I've ____ printing paper. I haven't got any.", answer: "run out of", options: ["run out of", "run low on", "charged", "paid"], explain: "Ejercicio 7 (pág. 11): 'I've run out of printing paper. I haven't got any.'" },
-      { id: "f11", subj: "prof", prompt: "In the UK, you enter a building on the ____ floor.", answer: "ground", options: ["ground", "first", "top", "second"], explain: "Tip (pág. 7): 'In the UK, you enter a building on the ground floor...'" }
+      { id: "f1", subj: "comm", prompt: "The job requires me to ____ to Paris.", answer: "relocate", options: ["relocate", "recruit", "fire", "lead"], explain: "'The job requires me to relocate to Paris.'" },
+      { id: "f2", subj: "comm", prompt: "I need to give two months' ____ when I want to leave my current job.", answer: "notice", options: ["notice", "perk", "incentive", "schedule"], explain: "Notice = preaviso antes de dejar un empleo." },
+      { id: "f3", subj: "comm", prompt: "One ____ of working here is that you get 10% off at some of the local restaurants.", answer: "perk", options: ["perk", "notice", "starting salary", "headquarters"], explain: "Perk = beneficio extra o ventaja laboral." },
+      { id: "f4", subj: "comm", prompt: "Every week, the marketing reps get their ____ for the following week.", answer: "schedule", options: ["schedule", "shift work", "survey", "target"], explain: "Schedule = horario o planificación semanal." },
+      { id: "f5", subj: "comm", prompt: "Greg was late for work again. I'm sure they'll ____ him soon.", answer: "fire", options: ["fire", "recruit", "lead", "supervise"], explain: "Fire = despedir a un empleado." },
+      { id: "f6", subj: "prof", prompt: "I travel for work a lot, so I need a ____ rather than a desktop computer.", answer: "laptop", options: ["laptop", "pedestal", "scanner", "projector"], explain: "Laptop = ordenador portátil; desktop computer = ordenador de sobremesa." },
+      { id: "f7", subj: "prof", prompt: "I keep a few files, some pens and my laptop bag in my ____.", answer: "pedestal", options: ["pedestal", "shredder", "photocopier", "recycling bin"], explain: "Pedestal = cajonera de oficina bajo el escritorio." },
+      { id: "f8", subj: "prof", prompt: "Please ____ my calls carefully — I'm very busy.", answer: "screen", options: ["screen", "schedule", "distribute", "keep"], explain: "Screen calls = filtrar llamadas." },
+      { id: "f9", subj: "prof", prompt: "You ____ track of our office supplies so that we don't run out of anything.", answer: "keep", options: ["keep", "screen", "receive", "prepare"], explain: "Keep track of = llevar el control / seguimiento." },
+      { id: "f10", subj: "prof", prompt: "I've ____ printing paper. I haven't got any.", answer: "run out of", options: ["run out of", "run low on", "charged", "paid"], explain: "Run out of = quedarse sin existencias." },
+      { id: "f11", subj: "prof", prompt: "In the UK, you enter a building on the ____ floor.", answer: "ground", options: ["ground", "first", "top", "second"], explain: "En Reino Unido se entra por la 'ground floor' (planta baja)." }
     ];
 
     const WRITE_QUESTIONS = [
@@ -1412,7 +1412,7 @@
       {
         id: "bm1",
         subj: "comm",
-        title: "Matches (A ↔ 1): Une cada adjetivo del libro con su definición (pág. 97)",
+        title: "Matches (A ↔ 1): Une cada adjetivo con su definición",
         pairs: [
           { left: "A. sensitive", right: "aware of other people's feelings" },
           { left: "B. creative", right: "can think of original ideas" },
@@ -1425,7 +1425,7 @@
       {
         id: "bm2",
         subj: "comm",
-        title: "Matches (A ↔ 1): Une los opuestos de la Unidad 19 (pág. 95)",
+        title: "Matches (A ↔ 1): Une los opuestos de personalidad y trabajo",
         pairs: [
           { left: "A. outgoing", right: "introverted" },
           { left: "B. insecure", right: "confident" },
@@ -1438,7 +1438,7 @@
       {
         id: "bm3",
         subj: "prof",
-        title: "Matches (A ↔ 1): Une cada cargo con su función (pág. 5)",
+        title: "Matches (A ↔ 1): Une cada cargo con su función",
         pairs: [
           { left: "A. Financial Director", right: "manages the company's money" },
           { left: "B. Marketing Director", right: "plans how to sell a product" },
@@ -1451,7 +1451,7 @@
       {
         id: "bm4",
         subj: "prof",
-        title: "Matches (A ↔ 1): Une cada término de facturación con su definición (pág. 11)",
+        title: "Matches (A ↔ 1): Une cada término de facturación con su definición",
         pairs: [
           { left: "A. price per unit", right: "how much each item costs" },
           { left: "B. subtotal", right: "price of items without tax" },
@@ -1464,12 +1464,12 @@
     ];
 
     const ORDER_QUESTIONS = [
-      { id: "o1", subj: "comm", prompt: "Ordena la pregunta de entrevista (pág. 94):", answer: "Could you tell me about your educational background?", words: ["Could", "you", "tell", "me", "about", "your", "educational", "background?"] },
-      { id: "o2", subj: "comm", prompt: "Ordena la frase de entrevista (pág. 94):", answer: "I'd like to know more about how well you work under pressure.", words: ["I'd", "like", "to", "know", "more", "about", "how", "well", "you", "work", "under", "pressure."] },
-      { id: "o3", subj: "comm", prompt: "Ordena la respuesta del candidato (pág. 96):", answer: "I'm keen to succeed and I'm flexible about hours.", words: ["I'm", "keen", "to", "succeed", "and", "I'm", "flexible", "about", "hours."] },
-      { id: "o4", subj: "prof", prompt: "Ordena la frase del diálogo (pág. 4):", answer: "The Human Resources Department is on the first floor.", words: ["The", "Human", "Resources", "Department", "is", "on", "the", "first", "floor."] },
-      { id: "o5", subj: "prof", prompt: "Ordena la petición educada (pág. 8):", answer: "Could you please e-mail the agenda to everyone?", words: ["Could", "you", "please", "e-mail", "the", "agenda", "to", "everyone?"] },
-      { id: "o6", subj: "prof", prompt: "Ordena las indicaciones del plano (pág. 7):", answer: "Walk all the way to the end of the corridor and then turn left.", words: ["Walk", "all", "the", "way", "to", "the", "end", "of", "the", "corridor", "and", "then", "turn", "left."] }
+      { id: "o1", subj: "comm", prompt: "Ordena la pregunta de entrevista:", answer: "Could you tell me about your educational background?", words: ["Could", "you", "tell", "me", "about", "your", "educational", "background?"] },
+      { id: "o2", subj: "comm", prompt: "Ordena la frase de entrevista:", answer: "I'd like to know more about how well you work under pressure.", words: ["I'd", "like", "to", "know", "more", "about", "how", "well", "you", "work", "under", "pressure."] },
+      { id: "o3", subj: "comm", prompt: "Ordena la respuesta del candidato:", answer: "I'm keen to succeed and I'm flexible about hours.", words: ["I'm", "keen", "to", "succeed", "and", "I'm", "flexible", "about", "hours."] },
+      { id: "o4", subj: "prof", prompt: "Ordena la frase sobre ubicación en la oficina:", answer: "The Human Resources Department is on the first floor.", words: ["The", "Human", "Resources", "Department", "is", "on", "the", "first", "floor."] },
+      { id: "o5", subj: "prof", prompt: "Ordena la petición educada:", answer: "Could you please e-mail the agenda to everyone?", words: ["Could", "you", "please", "e-mail", "the", "agenda", "to", "everyone?"] },
+      { id: "o6", subj: "prof", prompt: "Ordena las indicaciones del plano:", answer: "Walk all the way to the end of the corridor and then turn left.", words: ["Walk", "all", "the", "way", "to", "the", "end", "of", "the", "corridor", "and", "then", "turn", "left."] }
     ];
 
     /* ================= APP STATE & ANTI-REPEAT ENGINE ================= */
@@ -1594,7 +1594,6 @@
       } else if (mode === "audio") {
         q = buildAudioQuestions(ROUND_SIZE);
       } else if (mode === "mixed") {
-        // Simulacro completo de 20 preguntas variadas (3+4+4+3+2+2+2 = 20)
         const vis = pickWithoutRepeat(filterBySubj(VISUAL_QUESTIONS), `visual_${selectedSubj}`, 3).map(x => ({ ...x, type: "visual", options: shuffle(x.options) }));
         const mcq = pickWithoutRepeat(filterBySubj(MCQ_QUESTIONS), `mcq_${selectedSubj}`, 4).map(x => ({ ...x, type: "mcq", options: shuffle(x.options) }));
         const fil = pickWithoutRepeat(filterBySubj(FILL_QUESTIONS), `fill_${selectedSubj}`, 4).map(x => ({ ...x, type: "fill", options: shuffle(x.options) }));
