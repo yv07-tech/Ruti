@@ -824,61 +824,61 @@
         </div>
       </div>
 
-      <div class="section-title">2. Elige el tipo de lección (Mínimo 6 ejercicios)</div>
+      <div class="section-title">2. Elige el tipo de lección</div>
       <div class="modes-grid">
         <button class="mode-btn featured" onclick="startMode('mixed')">
           <span class="mode-icon">🎯</span>
           <div>
-            <div class="mode-name">Lección Mixta · Simulacro de Examen (20 preguntas)</div>
-            <div class="mode-desc">Examen completo de 20 ejercicios variados cubriendo todo el temario sin repetir palabras.</div>
+            <div class="mode-name">Lección Mixta · Simulacro de Examen</div>
+            <div class="mode-desc">Examen completo con ejercicios variados cubriendo todo el temario sin repetir palabras.</div>
           </div>
         </button>
 
         <button class="mode-btn" onclick="startMode('visual')">
           <span class="mode-icon">🖼️</span>
-          <div class="mode-name">Visual (66 ilustraciones)</div>
+          <div class="mode-name">Visual</div>
           <div class="mode-desc">Identifica objetos, direcciones, lugares, documentos y perfiles del glosario.</div>
         </button>
 
         <button class="mode-btn" onclick="startMode('mcq')">
           <span class="mode-icon">✅</span>
-          <div class="mode-name">Selección Múltiple (6)</div>
+          <div class="mode-name">Selección Múltiple</div>
           <div class="mode-desc">Preguntas variadas de todo el vocabulario y definiciones.</div>
         </button>
 
         <button class="mode-btn" onclick="startMode('fill')">
           <span class="mode-icon">📝</span>
-          <div class="mode-name">Completar Frases (6)</div>
+          <div class="mode-name">Completar Frases</div>
           <div class="mode-desc">Elige la palabra exacta que encaja en el hueco.</div>
         </button>
 
         <button class="mode-btn" onclick="startMode('write')">
           <span class="mode-icon">⌨️</span>
-          <div class="mode-name">Escribir en Inglés (6)</div>
+          <div class="mode-name">Escribir en Inglés</div>
           <div class="mode-desc">Escribe cualquiera de las palabras del temario en inglés.</div>
         </button>
 
         <button class="mode-btn" onclick="startMode('bookmatch')">
           <span class="mode-icon">🔗</span>
-          <div class="mode-name">Matches A ↔ 1 (6)</div>
-          <div class="mode-desc">6 bloques de asociaciones de definiciones, opuestos y cargos.</div>
+          <div class="mode-name">Matches A ↔ 1</div>
+          <div class="mode-desc">Asociaciones de definiciones, opuestos y cargos.</div>
         </button>
 
         <button class="mode-btn" onclick="startMode('pairs')">
           <span class="mode-icon">⚡</span>
-          <div class="mode-name">Parejas Rápidas (6)</div>
-          <div class="mode-desc">6 rondas conectando 36 palabras del temario con su significado.</div>
+          <div class="mode-name">Parejas Rápidas</div>
+          <div class="mode-desc">Conecta las palabras del temario con su significado.</div>
         </button>
 
         <button class="mode-btn" onclick="startMode('order')">
           <span class="mode-icon">🧩</span>
-          <div class="mode-name">Ordenar Frase (6)</div>
+          <div class="mode-name">Ordenar Frase</div>
           <div class="mode-desc">Coloca las palabras en el orden sintáctico correcto.</div>
         </button>
 
         <button class="mode-btn" onclick="startMode('audio')">
           <span class="mode-icon">🎧</span>
-          <div class="mode-name">Audio Listening (6)</div>
+          <div class="mode-name">Audio Listening</div>
           <div class="mode-desc">Escucha la pronunciación en inglés y elige qué significa.</div>
         </button>
 
@@ -975,7 +975,7 @@
       window.speechSynthesis.speak(utter);
     }
 
-    /* ================= 66 ILUSTRACIONES VECTORIALES DEL GLOSARIO ================= */
+    /* ================= ILUSTRACIONES VECTORIALES DEL GLOSARIO ================= */
     const SVGS = {
       staples: `<svg viewBox="0 0 120 120"><rect x="20" y="52" width="80" height="46" rx="6" fill="#1cb0f6" stroke="#148bc4" stroke-width="3"/><polygon points="20,52 34,34 86,34 100,52" fill="#7dd3fc" stroke="#148bc4" stroke-width="3"/><rect x="28" y="64" width="64" height="22" rx="4" fill="#ffffff"/><text x="60" y="79" font-size="11" font-weight="900" fill="#148bc4" text-anchor="middle">STAPLES</text><path d="M40 46 V24 H56 V46 M64 46 V24 H80 V46" fill="none" stroke="#64748b" stroke-width="4" stroke-linecap="round"/></svg>`,
       sticky_tape: `<svg viewBox="0 0 120 120"><circle cx="52" cy="62" r="32" fill="#fde047" stroke="#ca8a04" stroke-width="3"/><circle cx="52" cy="62" r="14" fill="#ffffff" stroke="#ca8a04" stroke-width="3"/><path d="M78 44 L104 38 L104 56 L72 62" fill="#fef08a" stroke="#ca8a04" stroke-width="2.5"/></svg>`,
@@ -1049,7 +1049,7 @@
       dozen: `<svg viewBox="0 0 120 120"><rect x="20" y="26" width="80" height="68" rx="14" fill="#ffc800" stroke="#d9a800" stroke-width="3"/><text x="60" y="74" font-size="44" font-weight="900" fill="#1f2937" text-anchor="middle">12</text></svg>`
     };
 
-    /* ================= 192 PALABRAS Y EXPRESIONES OFICIALES ================= */
+    /* ================= PALABRAS Y EXPRESIONES OFICIALES ================= */
     const VOCAB_DB = [
       // HABILIDADES COMUNICATIVAS · UNIT 19
       { subj: "comm", en: "advanced", es: "avanzado" },
@@ -1248,7 +1248,7 @@
       { subj: "prof", en: "visitor's pass", es: "pase de visitante" }
     ];
 
-    /* ================= 66 PREGUNTAS VISUALES DEL GLOSARIO ================= */
+    /* ================= PREGUNTAS VISUALES DEL GLOSARIO ================= */
     const VISUAL_QUESTIONS = [
       // Material y equipos de oficina (Inglés Profesional)
       { id: "v1", subj: "prof", svg: "staples", prompt: "Completa la expresión: 'A box of ____'", answer: "staples", options: ["staples", "highlighters", "sticky tape", "paper"], enTerm: "a box of staples", esTerm: "una caja de grapas" },
@@ -1544,7 +1544,7 @@
       return a;
     }
 
-    /* ================= DYNAMIC GENERATORS USING ALL 192 WORDS ================= */
+    /* ================= DYNAMIC GENERATORS ================= */
     function buildDynamicMcqQuestions(count = ROUND_SIZE) {
       const vocabPool = filterBySubj(VOCAB_DB);
       const contextPool = filterBySubj(CONTEXT_MCQ_QUESTIONS);
@@ -1666,7 +1666,7 @@
         sets.push({
           type: "pairs",
           subj: selectedSubj,
-          title: `Parejas Rápidas (${i + 1}/${rounds}): Conecta las 6 palabras con su significado`,
+          title: `Parejas Rápidas (${i + 1}/${rounds}): Conecta las palabras con su significado`,
           pairs: slice.map(v => ({ left: v.en, right: v.es }))
         });
       }
